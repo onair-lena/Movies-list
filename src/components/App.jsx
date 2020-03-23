@@ -7,10 +7,18 @@ console.log(moviesData)
 class App extends React.Component {
     constructor() {
         super()
+
+        this.state = {
+            movies: moviesData
+        }
     }
     render () {
         console.log(this)
-        return <div>{moviesData[0].title}</div>;
+        return <div>
+            {this.state.movies.map(it => {
+            return <p>{it.title}</p>
+            })}
+        </div>;
     }
 }
 
