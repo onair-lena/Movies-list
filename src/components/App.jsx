@@ -16,7 +16,9 @@ class App extends React.Component {
     return <div>
       {this.state.movies.map(it => {
         return (
-          <div>
+          <div
+            key={it.id}
+          >
             <p>{it.title}</p>
             <button onClick={ () => {
               const updateMovies = this.state.movies.filter(item =>{
