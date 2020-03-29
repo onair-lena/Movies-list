@@ -16,7 +16,12 @@ class App extends React.Component {
         console.log(this)
         return <div>
             {this.state.movies.map(it => {
-            return <p>{it.title}</p>
+            return (
+            <div>
+                <p>{it.title}</p>
+                <button>Delete Movie</button>
+            </div>
+            )
             })}
         </div>;
     }
