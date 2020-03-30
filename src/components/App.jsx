@@ -3,7 +3,7 @@ import React from "react";
 import {moviesData} from"../moviesData"
 import MovieItem from "./MovieItem"
 
-console.log(moviesData)
+//console.log(moviesData)
 
 class App extends React.Component {
   constructor() {
@@ -12,11 +12,25 @@ class App extends React.Component {
       movies: moviesData
      }
   }
+removeMovie = (movie) =>{
+  const updateMovies = this.state.movies.filter(item =>{
+    return item.id !==movie.id
+  })
+  this.setState({
+    movies: updateMovies
+  })
+}
+
   render () {
-    console.log(this)
+    //console.log(this)
     return <div>
       {this.state.movies.map(it => {
-        return <MovieItem key={it.id} movie={it}/>
+        return (<MovieItem 
+          key={it.id}
+          movie={it} 
+          removeMovie={this.removeMovie}
+        />
+        )
       })}
     </div>;
   }
