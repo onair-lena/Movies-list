@@ -27,15 +27,18 @@ removeMovie = (movie) =>{
     <div className="container">
       <div className="row">
         <div className="col-9">
+        <div className="row">
           {this.state.movies.map(it => {
             return (
+              <div className="col-6 mb-4" key={it.id}>
               <MovieItem 
-              key={it.id}
               movie={it} 
               removeMovie={this.removeMovie}
              />
+             </div>
             )
           })}
+         </div>
         </div>
         <div className="col-3">
           <p>Will watch: 0</p>
