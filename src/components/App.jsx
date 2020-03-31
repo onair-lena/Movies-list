@@ -23,21 +23,31 @@ removeMovie = (movie) =>{
 
   render () {
     //console.log(this)
-    return <div>
-      {this.state.movies.map(it => {
-        return (<MovieItem 
-          key={it.id}
-          movie={it} 
-          removeMovie={this.removeMovie}
-        />
-        )
-      })}
-    </div>;
+    return (
+    <div className="container">
+      <div className="row">
+        <div className="col-9">
+          {this.state.movies.map(it => {
+            return (
+              <MovieItem 
+              key={it.id}
+              movie={it} 
+              removeMovie={this.removeMovie}
+             />
+            )
+          })}
+        </div>
+        <div className="col-3">
+          <p>Will watch: 0</p>
+        </div>
+      </div>
+    </div>
+    )
   }
 }
 
-// function App() {
+{/* // function App() {
 // return <div>{moviesData[0].title}</div>;
-// }
+// } */}
 
 export default App;
