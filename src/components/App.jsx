@@ -24,6 +24,12 @@ removeMovie = (movie) =>{
 
 addMovieToWillWatch = (movie) => {
   console.log(movie)
+  //this.state.moviesWillWatch.push(movie)
+  const willWatchMovies = [...this.state.moviesWillWatch]
+  willWatchMovies.push(movie)
+  this.setState({
+    moviesWillWatch: willWatchMovies
+  })
 }
 
   render () {
