@@ -2,7 +2,7 @@ import React from "react"
 
 const MovieItem = (props) => {
   console.log(props)
-  const {movie, removeMovie} = props
+  const {movie, removeMovie, addMovieToWillWatch} = props
   return (
     <div className="card">
       <img className="card-img-top"
@@ -14,7 +14,7 @@ const MovieItem = (props) => {
       <h6 className="card-title">{movie.title}</h6>
         <div className="d-flex justify-content-between align-items-center">
           <p className="mb-0">Rating: {movie.vote_average}</p>
-          <button type="button" className="btn btn-secondary">
+          <button type="button" className="btn btn-secondary" onClick={addMovieToWillWatch.bind(null, movie)}>
             Will Watch
           </button>
         </div>

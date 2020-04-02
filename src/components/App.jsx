@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      movies: moviesData
+      movies: moviesData,
+      moviesWillWatch: []
      }
   }
 removeMovie = (movie) =>{
@@ -19,6 +20,10 @@ removeMovie = (movie) =>{
   this.setState({
     movies: updateMovies
   })
+}
+
+addMovieToWillWatch = (movie) => {
+  console.log(movie)
 }
 
   render () {
@@ -34,6 +39,7 @@ removeMovie = (movie) =>{
               <MovieItem 
               movie={it} 
               removeMovie={this.removeMovie}
+              addMovieToWillWatch={this.addMovieToWillWatch}
              />
              </div>
             )
@@ -41,7 +47,7 @@ removeMovie = (movie) =>{
          </div>
         </div>
         <div className="col-3">
-          <p>Will watch: 0</p>
+        <p>Will watch: {this.state.moviesWillWatch.length}</p>
         </div>
       </div>
     </div>
