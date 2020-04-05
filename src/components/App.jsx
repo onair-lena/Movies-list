@@ -22,6 +22,15 @@ removeMovie = (movie) =>{
   })
 }
 
+removeMovieFromWillWatch = (movie) =>{
+  const updateMoviesWillWatch = this.state.moviesWillWatch.filter(item =>{
+    return item.id !==movie.id
+  })
+  this.setState({
+    moviesWillWatch: updateMoviesWillWatch
+  })
+}
+
 addMovieToWillWatch = (movie) => {
   console.log(movie)
   //this.state.moviesWillWatch.push(movie)
@@ -46,6 +55,7 @@ addMovieToWillWatch = (movie) => {
               movie={it} 
               removeMovie={this.removeMovie}
               addMovieToWillWatch={this.addMovieToWillWatch}
+              removeMovieFromWillWatch={this.removeMovieFromWillWatch}
              />
              </div>
             )

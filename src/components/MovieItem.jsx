@@ -9,7 +9,7 @@ class MovieItem extends React.Component {
   }
   render() {
     console.log(this.props)
-  const {movie, removeMovie, addMovieToWillWatch} = this.props
+  const {movie, removeMovie, addMovieToWillWatch, removeMovieFromWillWatch} = this.props
   return (
     <div className="card">
       <img className="card-img-top"
@@ -25,6 +25,12 @@ class MovieItem extends React.Component {
             <button 
               type="button"
               className="btn btn-success"
+              onClick={() => {
+                this.setState({
+                  willWatch: false
+                })
+                removeMovieFromWillWatch(movie)
+              }}
             >
               Remove Will Watch
             </button>
@@ -32,7 +38,12 @@ class MovieItem extends React.Component {
           <button 
             type="button"
             className="btn btn-secondary"
-            onClick={addMovieToWillWatch.bind(null, movie)}
+            onClick={() => {
+              this.setState({
+                willWatch: true
+              })
+              addMovieToWillWatch(movie)
+            }}
           >
             Add Will Watch
           </button>
